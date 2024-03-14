@@ -1,8 +1,8 @@
 function mapAsteroids(rawAsteroids){
-    const near_earth_objects = rawAsteroids.near_earth_objects;
-    return Object.keys(near_earth_objects)
+    const asteroids_per_day_map = rawAsteroids.near_earth_objects;
+    return Object.keys(asteroids_per_day_map)
         .map(date => ({
-            [date]: near_earth_objects[date].map(mapEachAsteroid)
+            [date]: asteroids_per_day_map[date].map(mapEachAsteroid)
         }))
 }
 

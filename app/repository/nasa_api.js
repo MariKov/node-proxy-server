@@ -10,7 +10,7 @@ async function fetchAsteroids(startDate, endDate) {
             }});
         return response.data;
     } catch (error) {
-        console.error('Error fetching user data: ', error);
+        console.error('Error fetching response from NASA: ', error);
         throw error;
     }
 }
