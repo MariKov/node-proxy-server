@@ -1,18 +1,17 @@
 require('dotenv').config();
 const express = require('express');
-const fetchAsteroids = require('./controller')
+const fetchAsteroids = require('../service')
 
 const app = express();
 
-app.get('/hi', async (req, res) => {
+app.get('/meteors', async (req, res) => {
     try {
         const startDate = req.query.start??"2000-12-20";
-        const endDate = req.query.end??"2000-12-20";
+        const endDate = req.query.end??startDate;
         const asteroids = await fetchAsteroids(startDate, endDate);
-        res.json(asteroids);
+        res.status(200).json(asteroids);
     } catch (error) {
-        res.status(500);
-        res.send("Error fetching responce from NASA");
+        res.status(500).send("Error fetching responce from NASA");
     }
 });
 

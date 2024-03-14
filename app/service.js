@@ -2,7 +2,7 @@ const axios = require('axios');
 
 async function fetchAsteroids(startDate, endDate) {
     try {
-        const url = `${process.env.URL}?start_date=${startDate}&end_date=${endDate}&api_key=${process.env.API_KEY}`
+        const url = appendAuth(`${process.env.URL}?start_date=${startDate}&end_date=${endDate}`)
         const response = await axios.get(url);
         return response.data;
     } catch (error) {
@@ -10,5 +10,10 @@ async function fetchAsteroids(startDate, endDate) {
         throw error;
     }
 }
+
+function appendAuth(url){
+    return `${url}&api_key=${process.env.API_KEY}`
+}
+
 
 module.exports = fetchAsteroids;
