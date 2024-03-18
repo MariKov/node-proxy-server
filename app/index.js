@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const routeMeteors = require('./delivery/routes')
+const routeMeteors = require('./delivery/routes/meteor_routes')
 
 const app = express();
 
