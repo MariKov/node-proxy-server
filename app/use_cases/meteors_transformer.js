@@ -2,7 +2,8 @@ function transformAsteroids(rawAsteroids, filter, count) {
     const asteroids_per_day_map = rawAsteroids.near_earth_objects;
     return Object.keys(asteroids_per_day_map)
         .map(date => ({
-            [date]: asteroids_per_day_map[date].map(mapEachAsteroid)
+            date: [date],
+            meteors: asteroids_per_day_map[date].map(mapEachAsteroid)
                 .filter(filter)
                 .slice(0, count)
         }))

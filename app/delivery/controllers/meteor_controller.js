@@ -10,7 +10,7 @@ async function handleGetMeteors(req, res) {
         const count = formatNumber(req.query.count);
 
         const meteors = await getMeteors(start_date, end_date, is_dangerous, count);
-        res.status(200).json(meteors);
+        res.render('meteors_view.njk', {meteors});
     } catch (error) {
         res.status(500).send("Ups, something went wrong: " + error.message);
     }
