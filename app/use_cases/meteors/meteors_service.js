@@ -1,5 +1,5 @@
 const mapAsteroids = require("./meteors_transformer");
-const fetchAsteroids = require("../repository/nasa_api")
+const {fetchAsteroids} = require("../../repository/nasa_api");
 
 async function getMeteors(startDate, endDate, isDangerous, count) {
     try {

@@ -4,6 +4,7 @@ const nunjucks = require('nunjucks');
 const routeMeteors = require('./delivery/routes/meteor_routes')
 
 const app = express();
+app.use(express.json())
 
 nunjucks.configure('app/delivery/views', {
     express: app

@@ -1,4 +1,4 @@
-const getMeteors = require("../../use_cases/meteors_service");
+const getMeteors = require("../../use_cases/meteors/meteors_service");
 const {isDate, formatDate, formatBoolean, formatNumber} = require("../../utils/formatters");
 
 async function handleGetMeteors(req, res) {
