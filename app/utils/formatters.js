@@ -5,7 +5,7 @@ function isDate(input_date) {
 }
 
 function formatDate(input_date) {
-    return moment(input_date).format('YYYY-MM-DD');
+    return input_date ? moment(input_date).format('YYYY-MM-DD') : input_date;
 }
 
 function formatBoolean(input) {
