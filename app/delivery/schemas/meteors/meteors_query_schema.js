@@ -1,5 +1,5 @@
 const joi = require('joi');
-const {isDate} = require("../../utils/formatters");
+const {isDate} = require("../../../utils/formatters");
 
 const dateValidation = () => {
     return joi.string()

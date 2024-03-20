@@ -1,4 +1,4 @@
-const {formatDate, formatBoolean} = require("../../utils/formatters");
+const {formatDate, formatBoolean} = require("../../../utils/formatters");
 
 const formatDates = () => (req, res, next) => {
     req.query.start = formatDate(req.query.start);

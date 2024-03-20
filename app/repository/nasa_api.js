@@ -32,15 +32,4 @@ async function fetchMarsRoverPhotos(apiKey) {
     }
 }
 
-async function fetchPhoto(url) {
-    try {
-        return  await axios.get(url, {
-            responseType: 'stream'
-        });
-    } catch (error) {
-        console.error('Error fetching response from NASA: ', error);
-        throw error;
-    }
-}
-
-module.exports = {fetchAsteroids, fetchMarsRoverPhotos, fetchPhoto};
+module.exports = {fetchAsteroids, fetchMarsRoverPhotos};

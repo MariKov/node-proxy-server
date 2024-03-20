@@ -1,7 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const nunjucks = require('nunjucks');
-const routeMeteors = require('./delivery/routes/meteor_routes')
+const bodyParser = require('body-parser');
+const routeMeteors = require('./delivery/routes/routes')
 
 const app = express();
 app.use(express.json())
@@ -9,6 +10,8 @@ app.use(express.json())
 nunjucks.configure('app/delivery/views', {
     express: app
 });
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('', routeMeteors)
 
