@@ -1,2 +1,6 @@
-<h1>Recent photo from the Mars rover</h1>
-<img src="{{ marsPhotoImageUrl }}" alt="photo">
+{% extends "../layout.njk" %}
+{% block title %} Mars Rover Photo {% endblock %}
+{% block content %}
+    <h1>Recent photo from the Mars rover</h1>
+    <img src="{{ marsPhotoImageUrl }}" alt="photo">
+{% endblock %}

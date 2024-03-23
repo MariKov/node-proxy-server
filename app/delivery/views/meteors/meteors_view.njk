@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Meteors </title>
-</head>
-<body>
-<ul>
+{% extends "../layout.njk" %}
+{% block title %} Meteors {% endblock %}
+{% block content %}
     {% for day in meteors %}
         <h1>{{ day.date }}</h1>
         {% if day.meteors.length > 0 %}
@@ -24,6 +19,4 @@
             <h2>No meteors matching your criteria were observed at this day.</h2>
         {% endif %}
     {% endfor %}
-</ul>
-</body>
-</html>
+{% endblock %}

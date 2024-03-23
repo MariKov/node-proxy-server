@@ -1,19 +1,17 @@
-const validateQueryParams = (schema) => (req, res, next) => {
-    const {error} = schema.validate(req.query);
-    if (error) {
-        res.status(400).json({error: error.details[0].message});
-    } else {
-        next();
-    }
-};
+const ErrorFactory = require("../../exceptions/error_factory");
 
-const validateRequestBody = (schema) => (req, res, next) => {
-    const {error} = schema.validate(req.body);
+const validateQueryParams = (schema) =>
+    (req, res, next) => validate(schema, req.query, next);
+
+const validateRequestBody = (schema) =>
+    (req, res, next) => validate(schema, req.body, next);
+
+function validate(schema, input, next){
+    const {error} = schema.validate(input);
     if (error) {
-        res.status(400).json({error: error.details[0].message});
-    } else {
-        next();
+        throw ErrorFactory.createValidationError(error.message);
     }
-};
+    next();
+}
 
 module.exports = { validateQueryParams, validateRequestBody};

@@ -1,14 +1,18 @@
-<form action="/marsPhoto" method="post">
-    <h1>To get latest photo from the Mars rover, please, enter some your data: </h1>
+{% extends "../layout.njk" %}
+{% block title %} Mars Rover Photo {% endblock %}
+{% block content %}
+    <form action="/marsPhoto" method="post">
+        <h1>To get latest photo from the Mars rover, please, enter some your data: </h1>
 
-    <label for="userId">User Id:</label>
-    <input type="text" id="userId" name="userId" required>
+        <label for="userId">User Id:</label>
+        <input type="text" id="userId" name="userId" required>
 
-    <label for="userName">User name:</label>
-    <input type="text" id="userName" name="userName" required>
+        <label for="userName">User name:</label>
+        <input type="text" id="userName" name="userName" required>
 
-    <label for="apiKey">Api Key:</label>
-    <input type="text" id="apiKey" name="apiKey" min="1">
+        <label for="apiKey">Api Key:</label>
+        <input type="text" id="apiKey" name="apiKey" min="1">
 
-    <button type="submit">Get photo from the mars rover</button>
-</form>
+        <button type="submit">Get photo from the mars rover</button>
+    </form>
+{% endblock %}

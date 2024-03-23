@@ -1,5 +1,6 @@
 const axios = require('axios');
 const config = require('config');
+const ErrorFactory = require("../exceptions/error_factory");
 
 async function fetchAsteroids(startDate, endDate) {
     try {
@@ -12,8 +13,7 @@ async function fetchAsteroids(startDate, endDate) {
             }});
         return response.data;
     } catch (error) {
-        console.error('Error fetching response from NASA: ', error);
-        throw error;
+        throw ErrorFactory.createNasaApiError(error);
     }
 }
 
@@ -27,8 +27,7 @@ async function fetchMarsRoverPhotos(apiKey) {
             }});
         return response.data;
     } catch (error) {
-        console.error('Error fetching response from NASA: ', error);
-        throw error;
+        throw ErrorFactory.createNasaApiError(error);
     }
 }
 

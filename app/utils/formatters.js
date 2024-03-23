@@ -9,18 +9,7 @@ function formatDate(input_date) {
 }
 
 function formatBoolean(input) {
-    return typeof input === "boolean"
-        ? input
-        : input === "true"
-            ? true
-            : input === "false" ?
-                false
-                : undefined;
+    return typeof input === "boolean" ? input : input === "true";
 }
 
-function formatNumber(input) {
-    const number = Number(input);
-    return Number.isFinite(number) ? number : undefined;
-}
-
-module.exports = {isDate, formatDate, formatBoolean, formatNumber};
+module.exports = {isDate, formatDate, formatBoolean};
