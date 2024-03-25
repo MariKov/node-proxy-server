@@ -1,6 +1,8 @@
 module.exports = {
   nasaClient: {
     apiKey: process.env.API_KEY,
-    url: "https://api.nasa.gov/neo/rest/v1/feed"
+    baseUrl: "https://api.nasa.gov",
+    asteroidsPath: "/neo/rest/v1/feed",
+    marsPhotosPath: "/mars-photos/api/v1/rovers/curiosity/photos"
   }
 }

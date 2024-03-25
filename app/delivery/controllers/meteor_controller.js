@@ -1,23 +1,14 @@
-const getMeteors = require("../../use_cases/meteors_service");
-const moment = require('moment');
+const getMeteors = require("../../use_cases/meteors/meteors_service");
 
-async function handleGetMeteors(req, res) {
+async function handleGetMeteors(req, res, next) {
     try {
-        const start_date = isDate(req.query.start) ? formatDate(req.query.start) : formatDate(new Date());
-        const end_date = isDate(req.query.end) ? formatDate(req.query.end) : undefined;
-
-        const meteors = await getMeteors(start_date, end_date);
-        res.status(200).json(meteors);
+        const meteors = await getMeteors(
+            req.query.start, req.query.end,
+            req.query['were-dangerous-meteors'], req.query.count);
+        res.render('meteors/meteors_view.njk', {meteors});
     } catch (error) {
-        res.status(500).send("Ups, something went wrong: " + error.message);
+        next(error);
     }
-}
-
-function isDate(input_date){
-    return input_date && moment(input_date).isValid();
-}
-function formatDate(input_date){
-    return moment(input_date).format('YYYY-MM-DD');
 }
 
 module.exports = handleGetMeteors;

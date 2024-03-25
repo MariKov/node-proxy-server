@@ -1,0 +1,22 @@
+{% extends "../layout.njk" %}
+{% block title %} Meteors {% endblock %}
+{% block content %}
+    {% for day in meteors %}
+        <h1>{{ day.date }}</h1>
+        {% if day.meteors.length > 0 %}
+            {% for meteor in day.meteors %}
+                <h2>{{ meteor.id }}: {{ meteor.name }}</h2>
+                <li> diameter: {{ meteor.diameter.estimated_diameter_min }} - {{ meteor.diameter.estimated_diameter_max }}</li>
+                <li> relative velocity: {{ meteor.relative_velocity }} </li>
+                <li>close approach date: {{ meteor.close_approach_date_full }}</li>
+                {% if meteor.is_potentially_hazardous_asteroid %}
+                    <li>It's potentially dangerous!</li>
+                {% else %}
+                    <li>It's safe.</li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <h2>No meteors matching your criteria were observed at this day.</h2>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
